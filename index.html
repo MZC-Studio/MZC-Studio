@@ -1,0 +1,135 @@
+<<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈的个人网站</title>
+    <style>
+        /* styles.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>欢迎来到我的网站！</h1>
+        <p>Scratch|CCW|Python|HTML</p>
+    </header>
+
+    <nav>
+        <a href="#about">关于我</a>
+        <a href="#projects">项目</a>
+        <a href="#contact">联系</a>
+    </nav>
+
+    <section id="about">
+        <h2>简介</h2>
+        <p>开发者，擅长Scratch</p>
+        <h3>技能</h3>
+        <ul>
+            <li>Web开发</li>
+            <li>Python编程</li>
+            <li>数据分析</li>
+            <li>CCW Scratch开发</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>我的项目</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>小游戏</h3>
+                <p>一款打怪且可以联机的小游戏，目前正在测试中。推荐使用5寸及以上的手机或电脑游玩</p>
+                <a href="https://www.ccw.site/player/679197cc28de5c567e9854b6?accessKey=3fd0e1&projectId=https%3A%2F%2Fm.ccw.site%2Fuser_projects_sb3%2F264003928%2F44635306b10825e6574e5d1b70eddd0c.sb3">查看项目</a>
+            </div>
+            <div class="project-card">
+                <h3>RHYGO</h3>
+                <p>正在开发中...</p>
+                <a href="666">Coming Soon.</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>联系我</h2>
+        <p>邮箱：apple19782013@163.com</p>
+        <p>GitHub: <a href="https://github.com/Klweb3928">你的GitHub主页</a></p>
+    </section>
+
+    <footer>
+        <p>© 2023 Klweb3928. 由GitHub Pages(github.io)驱动</p>
+    </footer>
+    <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
+</body>
+</html>
