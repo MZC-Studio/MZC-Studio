@@ -15,13 +15,27 @@
         }
 
         body {
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            background-image: url('chenweb.jpg');
+            background-size: cover;      /* 覆盖整个区域 */
+            background-position: center; /* 图片居中显示 */
+            background-repeat: no-repeat;/* 禁止重复 */
+            background-attachment: fixed;/* 固定背景（视差效果） */
+            
+            /* 添加文字遮罩层 */
+            position: relative;
         }
-
+        
+        /* 半透明遮罩层（可选） */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.7); /* 白色半透明遮罩 */
+            z-index: -1;
+        }
         header {
             text-align: center;
             padding: 50px 0;
@@ -69,11 +83,13 @@
                 padding: 10px;
             }
         }
+
+
     </style>
 </head>
 <body>
     <header>
-        <h1>欢迎来到我的网站！</h1>
+        <h1>欢迎来到陈的网站！</h1>
         <p>Scratch|CCW|Python|HTML</p>
     </header>
 
@@ -109,15 +125,23 @@
         </div>
     </section>
 
+    <section id="video">
+        <h2>踩踩背</h2>
+        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1055769058&bvid=BV1Nn4y1X7fA&cid=1602167383&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+    
     <section id="contact">
         <h2>联系我</h2>
-        <p>邮箱：apple19782013@163.com</p>
-        <p>GitHub: <a href="https://github.com/Klweb3928">你的GitHub主页</a></p>
+        <p>邮箱：apple19782013@163.com 手机：13559928671</p>
+        <p>GitHub: <a href="https://github.com/Klweb3928">前往我的GitHub主页</a></p>
     </section>
+        
+    <section id="ad">
+        <h2>广告位招租（联系我，0.01元/终身，可免费试用12个月）</h2>
+        <!-- 内联样式 -->
+        <p style="color:red;">限时优惠！！！！！！打0.000001折！</p>
 
 <section id="guestbook">
-    <h2>留言板</h2>
-    
+    <h2>留言板（需开加速器）</h2>
     <!-- 留言输入表单 -->
     <div class="guestbook-form">
         <form id="messageForm">
@@ -145,7 +169,6 @@
 </section>
 
 <style>
-/* 添加以下CSS样式 */
 .guestbook-form {
     background: #fff;
     padding: 20px;
@@ -248,7 +271,7 @@ document.getElementById('messageForm').addEventListener('submit', async (e) => {
         }
     } catch (error) {
         document.getElementById('messageStatus').innerHTML = 
-            '<div style="color:red;">留言失败，请稍后再试</div>';
+            '<div style="color:red;">留言失败，请稍后再试！</div>';
     }
 });
 
@@ -285,7 +308,7 @@ loadMessages();
 </script>
 
     <footer>
-        <p>© 2023 Klweb3928. 由GitHub Pages(Github.io)驱动</p>
+        <p>© 2025 Klweb3928. 由GitHub Pages(Github.io)驱动</p>
     </footer>
 
     <script>
