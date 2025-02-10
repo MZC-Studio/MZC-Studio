@@ -15,7 +15,10 @@
         
         @font-face {
             font-family: "font";        //自定义字体名称
-            src:url("./font.woff2");        //字体包路径
+            src:url("./font.woff2"); //字体包路径
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
         }
         
         body {
@@ -91,6 +94,7 @@
 
 </style>
 </head>
+<link rel="preload" href="fonts/customfont.woff2" as="font" type="font/woff2" crossorigin>
 <body>
     <header>
         <h1 style="font-family: 'font';">欢迎来到陈的网站！</h1>
