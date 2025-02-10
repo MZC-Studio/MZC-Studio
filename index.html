@@ -127,6 +127,8 @@
     // 初始化
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
+    else
+        document.body.classList.add('light-mode');
     }
     </script>
     
@@ -134,8 +136,10 @@
     .dark-mode {
         filter: invert(1) hue-rotate(180deg);
     }
-    
     img,video,iframe,button,a {
+        filter: invert(1) hue-rotate(180deg);
+    }
+    .light-mode {
         filter: invert(1) hue-rotate(180deg);
     }
         
