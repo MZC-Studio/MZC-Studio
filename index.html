@@ -23,7 +23,9 @@
             font-family: 'font', sans-serif;  
             -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
             -moz-osx-font-smoothing: grayscale;  /* Firefox on macOS */
-            line-height: 1.5;  /* 推荐值：1.4-1.6 */
+            line-height: var(--line-height);
+            margin: 0;
+            padding: calc(var(--base-unit) * 2);
             /* 添加文字遮罩层 */
             position: relative;
         }
@@ -44,16 +46,22 @@
             padding: 50px 0;
             border-bottom: 1px solid #eee;
         }
-        
-        p {
-            margin: 0 0 1em;  /* 统一段落间距 */
-        }
-        
-        h1, h2, h3 {
-            line-height: 1.2;  /* 标题行高更紧凑 */
-            margin: 1.5em 0 0.5em;
+        /* 基准单位 */
+        :root {
+            --base-unit: 8px;
+            --line-height: 1.5;
         }
 
+        /* 标题层级 */
+        h1 { font-size: calc(var(--base-unit) * 3); }
+        h2 { font-size: calc(var(--base-unit) * 2.5); }
+        h3 { font-size: calc(var(--base-unit) * 2); }
+        
+        /* 段落优化 */
+        p {
+            margin: 0 0 calc(var(--base-unit) * 1.5);
+            max-width: 65ch;  /* 最佳阅读宽度 */
+        }
         nav {
             margin: 20px 0;
             text-align: center;
@@ -90,9 +98,17 @@
             color: #666;
         }
 
-        @media (max-width: 600px) {
+        @media screen and (max-width: 768px) {
+            :root {
+                --base-unit: 10px;  /* 放大基准单位 */
+            }
+
             body {
-                padding: 10px;
+                padding: var(--base-unit);
+            }
+
+            p {
+                line-height: 1.4;  /* 更紧凑的行高 */
             }
         }
 
