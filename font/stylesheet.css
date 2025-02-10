@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'PHIFON';
+    src: local('Phigros Game Font'), local('PHIFON'),
+        url('PHIFON.woff2') format('woff2'),
+        url('PHIFON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
