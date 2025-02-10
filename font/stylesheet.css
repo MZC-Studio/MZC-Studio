@@ -7,4 +7,30 @@
     font-style: normal;
     font-display: swap;
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* IE11+ 抗锯齿增强 */
+    body {
+        text-shadow: 0 0 1px transparent;
+    }
+}
 
+/* 高分屏优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    body {
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+}
+@supports (-webkit-font-smoothing: antialiased) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        font-smooth: always;
+        font-smoothing-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+}
+.high-quality body {
+    text-rendering: geometricPrecision;
+}
+.text-container {
+    transform: translateZ(0);  /* 触发GPU加速 */
+    backface-visibility: hidden;
+}
