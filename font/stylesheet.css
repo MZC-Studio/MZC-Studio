@@ -7,6 +7,8 @@
     font-style: normal;
     font-display: swap;
 }
+/* 通用抗锯齿设置 */
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     /* IE11+ 抗锯齿增强 */
     body {
