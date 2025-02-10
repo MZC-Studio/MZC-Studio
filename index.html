@@ -116,6 +116,28 @@
 </style>
 </head>
 <body>
+    <!-- 切换按钮 -->
+    <button id="themeToggle">🌓 切换主题</button>
+    
+    <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+    
+    // 初始化
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+    </script>
+    
+    <style>
+    .dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+    </style>
     <header>
         <h3 style="font-family: 'font';">欢迎来到陈的网站！</h1>
         <h2 style="font-family: 'font';">Scratch|CCW|Python|HTML</p>
