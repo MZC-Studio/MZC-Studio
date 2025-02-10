@@ -127,28 +127,32 @@
     // 初始化
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
-    else
-        document.body.classList.add('light-mode');
     }
     </script>
     
     <style>
     .dark-mode {
         filter: invert(1) hue-rotate(180deg);
+        img,video,iframe,button,a {
+            filter: invert(1) hue-rotate(180deg);
+        }
     }
-    img,video,iframe,button,a {
-        filter: invert(2) hue-rotate(360deg);
-    }
-    .light-mode {
-        filter: invert(1) hue-rotate(180deg);
-    }
-        
     </style>
     <header>
         <h3 style="font-family: 'font';">欢迎来到陈的网站！</h1>
         <h2 style="font-family: 'font';">Scratch|CCW|Python|HTML</p>
     </header>
-
+    <button id="backToTop" style="display:none;position:fixed;bottom:20px;right:20px;">↑</button>
+        <script>
+            window.addEventListener('scroll', () => {
+                const btn = document.getElementById('backToTop');
+                btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+            });
+            
+            document.getElementById('backToTop').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+    </script>
     <nav>
         <a href="#about">关于我</a>
         <a href="#projects">项目</a>
@@ -364,17 +368,6 @@ async function loadMessages() {
 
 // 页面加载时获取留言
 loadMessages();
-<button id="backToTop" style="display:none;position:fixed;bottom:20px;right:20px;">↑</button>
-    <script>
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('backToTop');
-            btn.style.display = window.scrollY > 100 ? 'block' : 'none';
-        });
-        
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 </script>
 
     <footer>
