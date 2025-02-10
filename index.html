@@ -5,7 +5,7 @@
     <link rel="icon" href="chenweb.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <title>陈的个人网站</title>
     <style>
         * {
@@ -16,7 +16,7 @@
         
         @font-face {
             font-family: "font";        //自定义字体名称
-            src:url("./font.woff2"); //字体包路径
+            src:url('./font.woff2'),format('woff2'); //字体包路径
             font-weight: 400;
             font-style: normal;
             font-display: swap;
@@ -28,7 +28,7 @@
             background-position: center; /* 图片居中显示 */
             background-repeat: no-repeat;/* 禁止重复 */
             background-attachment: fixed;/* 固定背景（视差效果） */
-            font-family: "font";            
+            font-family: 'font', sans-serif;            
             /* 添加文字遮罩层 */
             position: relative;
         }
