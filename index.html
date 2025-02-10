@@ -21,7 +21,11 @@ loaded3<!-- index.html -->
             background-position: center; /* 图片居中显示 */
             background-repeat: no-repeat;/* 禁止重复 */
             background-attachment: fixed;/* 固定背景（视差效果） */
-            font-family: 'font', sans-serif;            
+            font-family: 'font', sans-serif;  
+            -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
+            -moz-osx-font-smoothing: grayscale;    /* Firefox on macOS */
+            text-rendering: optimizeLegibility;    /* 优先可读性 */
+            font-feature-settings: "kern";         /* 启用字距调整 */
             /* 添加文字遮罩层 */
             position: relative;
         }
