@@ -22,7 +22,8 @@
             background-attachment: fixed;/* 固定背景（视差效果） */
             font-family: 'font', sans-serif;  
             -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
-            -moz-osx-font-smoothing: grayscale;    /* Firefox on macOS */
+            -moz-osx-font-smoothing: grayscale;  /* Firefox on macOS */
+            line-height: 1.5;  /* 推荐值：1.4-1.6 */
             /* 添加文字遮罩层 */
             position: relative;
         }
@@ -42,6 +43,15 @@
             text-align: center;
             padding: 50px 0;
             border-bottom: 1px solid #eee;
+        }
+        
+        p {
+            margin: 0 0 1em;  /* 统一段落间距 */
+        }
+        
+        h1, h2, h3 {
+            line-height: 1.2;  /* 标题行高更紧凑 */
+            margin: 1.5em 0 0.5em;
         }
 
         nav {
