@@ -12,24 +12,35 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        }、
+        
         body {
-            line-height: 1.6;
             color: #333;
             max-width: 800px;
             font-family: 'font', sans-serif;  
             -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
             -moz-osx-font-smoothing: grayscale;  /* Firefox on macOS */
-            line-height: var(--line-height);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
         } 
+        
         header {
             text-align: center;
             padding: 50px 0;
             border-bottom: 1px solid #eee;
         }
-
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;  /* 根据需求调整 */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
         /* 标题层级 */
         h1 { font-size: calc(var(--base-unit) * 3); }
         h2 { font-size: calc(var(--base-unit) * 2.5); }
@@ -40,6 +51,7 @@
             margin: 0 0 calc(var(--base-unit) * 1.5);
             max-width: 65ch;  /* 最佳阅读宽度 */
         }
+        
         nav {
             margin: 20px 0;
             text-align: center;
