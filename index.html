@@ -27,11 +27,15 @@
             /* 添加文字遮罩层 */
             position: relative;
             display: grid;
-            grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
+            place-items: center;  /* 水平和垂直居中 */
+            min-height: 100vh;
+            margin: 0;
         }
-
+        
         .container {
-            grid-column: 2 / 3;
+            width: 80%;
+            max-width: 1200px;
+            padding: 20px;
         }
         /* 半透明遮罩层（可选） */
         body::before {
