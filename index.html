@@ -13,18 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --base-unit: 8px;
-            --line-height: 1.5;
-        }
-        
-        @media screen and (max-width: 768px) {
-            :root {
-                --base-unit: 10px;  /* 放大基准单位 */
-            }
-
-        
         body {
             line-height: 1.6;
             color: #333;
@@ -87,11 +75,15 @@
             padding: 30px;
             color: #666;
         }
-
+                
+        :root {
+            --base-unit: 8px;
+            --line-height: 1.5;
+        }
+        
         @media screen and (max-width: 768px) {
-
             body {
-                padding: var(--base-unit);
+                padding: var(10px);
             }
 
             p {
