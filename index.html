@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }、
+        }
         
         body {
             color: #333;
@@ -92,8 +92,18 @@
             --base-unit: 8px;
             --line-height: 1.5;
         }
-        
+        @media screen and (max-width: 1280px) {
+            .content-wrapper {
+                max-width: 90%;    /* 大屏幕显示优化 */
+            }
+        }
+
         @media screen and (max-width: 768px) {
+            .content-wrapper {
+                padding: 1rem;     /* 移动端间距优化 */
+                max-width: 100%;
+            }
+        }
             body {
                 padding: var(10px);
             }
@@ -102,8 +112,30 @@
                 line-height: 1.4;  /* 更紧凑的行高 */
             }
         }
-
-
+         
+        .main-container {
+            display: grid;
+            grid-template-columns: 
+                minmax(20px, 1fr)     /* 左边距 */
+                minmax(auto, 1200px) /* 内容区域 */
+                minmax(20px, 1fr);   /* 右边距 */
+        }
+        
+        .content-wrapper {
+            grid-column: 2 / 3;     /* 定位到中间列 */
+            padding: 2rem;
+            width: 100%;
+            max-width: 1200px;       /* 最大内容宽度 */
+            margin: 0 auto;         /* 水平居中 */
+            box-sizing: border-box;  /* 关键属性 */
+        }
+        
+        /* 内部元素约束 */
+        .content-section {
+            width: auto;            /* 自动宽度 */
+            min-width: 300px;       /* 最小宽度 */
+            max-width: 100%;        /* 防止溢出 */
+        }
 </style>
 </head>
 <body>
