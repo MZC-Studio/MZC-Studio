@@ -26,35 +26,13 @@
             padding: 20px;
             /* 添加文字遮罩层 */
             position: relative;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
         }
-        
+
         .container {
-            display: flex;
-            flex-direction: column;  /* 改为垂直方向布局 */
-            justify-content: center;  /* 垂直居中 */
-            align-items: center;      /* 水平居中 */
-            min-height: 100vh;
-            width: 100%;
-            max-width: 1200px;       /* 限制最大宽度 */
-            margin: 0 auto;          /* 水平居中 */
-            padding: 20px;
-            box-sizing: border-box;  /* 关键属性 */
+            grid-column: 2 / 3;
         }
-
-        .content {
-            width: 100%;            /* 填充容器宽度 */
-            max-width: 800px;       /* 内容最大宽度 */
-            flex: 0 1 auto;         /* 禁止拉伸 */
-            margin: 20px 0;         /* 垂直间距 */
-        }
-
-        .element {
-            transform: translate(-50%, -50%);
-        }
-        
         /* 半透明遮罩层（可选） */
         body::before {
             content: '';
