@@ -118,11 +118,11 @@
     
     <style>
     .dark-mode {
-        filter: invert(1)
+        filter: invert(1) hue-rotate(180deg);
         background-color: #121212;
+        img,video,iframe,button,a {
+        filter: invert(1) hue-rotate(-180deg);
     }
-    img,video,iframe,button,a {
-        filter: invert(1)
     }
     </style>
     <header>
