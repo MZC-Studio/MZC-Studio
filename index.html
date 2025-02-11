@@ -24,21 +24,7 @@
             line-height: var(--line-height);
             margin: 0;
             padding: calc(var(--base-unit) * 2);
-            /* 添加文字遮罩层 */
-            position: relative;
-        }
-        
-        /* 半透明遮罩层（可选） */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.5); /* 白色半透明遮罩 */
-            z-index: -1;
-        }
+        } 
         header {
             text-align: center;
             padding: 50px 0;
