@@ -15,32 +15,41 @@
         }
         
         body {
+            line-height: 1.6;
             color: #333;
             max-width: 800px;
             font-family: 'font', sans-serif;  
             -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
             -moz-osx-font-smoothing: grayscale;  /* Firefox on macOS */
-            line-height: 1.6;
-            margin: 0 auto;
-            padding: 0px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        } 
+            line-height: var(--line-height);
+            margin: 0;
+            padding: 20px;
+            /* 添加文字遮罩层 */
+            position: relative;
+        }
         
+        /* 半透明遮罩层（可选） */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.5); /* 白色半透明遮罩 */
+            z-index: -1;
+        }
         header {
             text-align: center;
             padding: 50px 0;
             border-bottom: 1px solid #eee;
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;  /* 根据需求调整 */
-            margin: 0 auto;
-            padding: 20px;
+        /* 基准单位 */
+        :root {
+            --base-unit: 8px;
+            --line-height: 1.5;
         }
-        
+
         /* 标题层级 */
         h1 { font-size: calc(var(--base-unit) * 3); }
         h2 { font-size: calc(var(--base-unit) * 2.5); }
@@ -51,7 +60,6 @@
             margin: 0 0 calc(var(--base-unit) * 1.5);
             max-width: 65ch;  /* 最佳阅读宽度 */
         }
-        
         nav {
             margin: 20px 0;
             text-align: center;
@@ -87,15 +95,14 @@
             padding: 30px;
             color: #666;
         }
-                
-        :root {
-            --base-unit: 8px;
-            --line-height: 1.5;
-        }
-        
+
         @media screen and (max-width: 768px) {
+            :root {
+                --base-unit: 10px;  /* 放大基准单位 */
+            }
+
             body {
-                padding: var(10px);
+                padding: var(--base-unit);
             }
 
             p {
@@ -126,10 +133,9 @@
     <style>
     .dark-mode {
         filter: invert(1) hue-rotate(180deg);
-        background-color: #121212;
         img,video,iframe,button,a {
-        filter: invert(1) hue-rotate(-180deg);
-    }
+            filter: invert(1) hue-rotate(180deg);
+        }
     }
     </style>
     <header>
