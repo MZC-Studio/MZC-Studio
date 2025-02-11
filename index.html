@@ -22,20 +22,14 @@
             -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
             -moz-osx-font-smoothing: grayscale;  /* Firefox on macOS */
             line-height: var(--line-height);
-            margin: 0;
-            padding: 20px;
             /* 添加文字遮罩层 */
             position: relative;
-            display: grid;
-            place-items: center;  /* 水平和垂直居中 */
-            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-        }
-        
-        * {
-            width: 80%;
-            max-width: 1200px;
-            padding: 20px;
+            padding: 0;
         }
         
         /* 半透明遮罩层（可选） */
