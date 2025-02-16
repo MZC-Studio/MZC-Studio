@@ -198,178 +198,180 @@
     <section id="video">
         <h2 style="font-family: 'font';">踩踩背</h2>
         <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1055769058&bvid=BV1Nn4y1X7fA&cid=1602167383&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-        
+    </section>
+    
     <section id="ad">
         <h2 style="font-family: 'font';">广告位招租（联系我，0.01元/终身，可免费试用12个月）</h2>
         <!-- 内联样式 -->
         <p style="color:red,font-family: 'font';">限时优惠！！！！！！打0.000001折！</p>
-        
-<section id="guestbook">
-    <h2 style="font-family: 'font';">留言板（需开加速器）</h2>
-    <!-- 留言输入表单 -->
-    <div class="guestbook-form">
-        <form id="messageForm">
-            <div>
-                <label>姓名：</label>
-                <input type="text" name="name" required>
-            </div>
-            <div>
-                <label>邮箱、昵称、微信昵称：</label>
-                <input type="email" name="email" required>
-            </div>
-            <div>
-                <label>留言：</label>
-                <textarea name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit">提交留言</button>
-        </form>
-        <div id="messageStatus"></div>
-    </div>
-
-    <!-- 留言展示区 -->
-    <div class="messages-container" id="messagesContainer">
-        <div class="loading">正在加载留言...</div>
-    </div>
-</section>
-
-<style>
-.guestbook-form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-}
-
-.guestbook-form form div {
-    margin-bottom: 15px;
-}
-
-.guestbook-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.guestbook-form input,
-.guestbook-form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    background: #2c3e50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #34495e;
-}
-
-.messages-container {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-.message-item {
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.message-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #666;
-}
-
-.loading {
-    text-align: center;
-    padding: 20px;
-    color: #999;
-}
-</style>
-
-<script>
-const config = {
-    username: 'Klweb3928',  
-    repo: 'Klweb3928.github.io',           
-    token: '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'        
-};
-
-// 提交留言
-document.getElementById('messageForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+    </section>
     
-    const formData = new FormData(e.target);
-    const messageData = {
-        title: `来自 ${formData.get('name')} 的留言`,
-        body: `**邮箱**: ${formData.get('email')}\n\n**留言内容**:\n${formData.get('message')}`
-    };
-
-    try {
-        const response = await fetch(`https://api.github.com/repos/${config.username}/${config.repo}/issues`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `token ${config.token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(messageData)
-        });
-
-        if (response.ok) {
-            document.getElementById('messageStatus').innerHTML = 
-                '<div style="color:green;">留言成功！</div>';
-            e.target.reset();
-            loadMessages(); // 刷新留言列表
-        } else {
-            throw new Error('提交失败!sb');
-        }
-    } catch (error) {
-        document.getElementById('messageStatus').innerHTML = 
-            '<div style="color:red;">留言失败，请稍后再试！</div>';
-    }
-});
-
-// 加载留言
-async function loadMessages() {
-    try {
-        const response = await fetch(
-            `https://api.github.com/repos/${config.username}/${config.repo}/issues?labels=guestbook`
-        );
-        const messages = await response.json();
-        
-        const container = document.getElementById('messagesContainer');
-        container.innerHTML = messages.length ? '' : '<div>还没有留言，快来第一个留言吧！</div>';
-        
-        messages.forEach(msg => {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message-item';
-            messageDiv.innerHTML = `
-                <div class="message-header">
-                    <span>${msg.title.replace('来自 ', '')}</span>
-                    <span>${new Date(msg.created_at).toLocaleDateString()}</span>
+    <section id="guestbook">
+        <h2 style="font-family: 'font';">留言板（需开加速器）</h2>
+        <!-- 留言输入表单 -->
+        <div class="guestbook-form">
+            <form id="messageForm">
+                <div>
+                    <label>姓名：</label>
+                    <input type="text" name="name" required>
                 </div>
-                <div class="message-content">${msg.body.split('**留言内容**:')[1]}</div>
-            `;
-            container.appendChild(messageDiv);
-        });
-    } catch (error) {
-        console.error('加载留言失败:', error);
+                <div>
+                    <label>邮箱、昵称、微信昵称：</label>
+                    <input type="text" name="email" required>
+                </div>
+                <div>
+                    <label>留言：</label>
+                    <textarea name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">提交留言</button>
+            </form>
+            <div id="messageStatus"></div>
+        </div>
+    
+        <!-- 留言展示区 -->
+        <div class="messages-container" id="messagesContainer">
+            <div class="loading">正在加载留言...</div>
+        </div>
+    </section>
+    
+    <style>
+    .guestbook-form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
     }
-}
-
-// 页面加载时获取留言
-loadMessages();
-</script>
+    
+    .guestbook-form form div {
+        margin-bottom: 15px;
+    }
+    
+    .guestbook-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .guestbook-form input,
+    .guestbook-form textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        background: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background: #34495e;
+    }
+    
+    .messages-container {
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+    }
+    
+    .message-item {
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .message-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        color: #666;
+    }
+    
+    .loading {
+        text-align: center;
+        padding: 20px;
+        color: #999;
+    }
+    </style>
+    
+    <script>
+    const config = {
+        username: 'Klweb3928',  
+        repo: 'Klweb3928.github.io',           
+        token: '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'        
+    };
+    
+    // 提交留言
+    document.getElementById('messageForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const messageData = {
+            title: `来自 ${formData.get('name')} 的留言`,
+            body: `**邮箱**: ${formData.get('email')}\n\n**留言内容**:\n${formData.get('message')}`
+        };
+    
+        try {
+            const response = await fetch(`https://api.github.com/repos/${config.username}/${config.repo}/issues`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `token${config.token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(messageData)
+            });
+    
+            if (response.ok) {
+                document.getElementById('messageStatus').innerHTML = 
+                    '<div style="color:green;">留言成功！</div>';
+                e.target.reset();
+                loadMessages(); // 刷新留言列表
+            } else {
+                throw new Error('提交失败!sb');
+            }
+        } catch (error) {
+            document.getElementById('messageStatus').innerHTML = 
+                '<div style="color:red;">留言失败，请稍后再试！</div>';
+        }
+    });
+    
+    // 加载留言
+    async function loadMessages() {
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${config.username}/${config.repo}/issues?labels=guestbook`
+            );
+            const messages = await response.json();
+            
+            const container = document.getElementById('messagesContainer');
+            container.innerHTML = messages.length ? '' : '<div>还没有留言，快来第一个留言吧！</div>';
+            
+            messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message-item';
+                messageDiv.innerHTML = `
+                    <div class="message-header">
+                        <span>${msg.title.replace('来自 ', '')}</span>
+                        <span>${new Date(msg.created_at).toLocaleDateString()}</span>
+                    </div>
+                    <div class="message-content">${msg.body.split('**留言内容**:')[1]}</div>
+                `;
+                container.appendChild(messageDiv);
+            });
+        } catch (error) {
+            console.error('加载留言失败:', error);
+        }
+    }
+    
+    // 页面加载时获取留言
+    loadMessages();
+    </script>
 
     <footer>
         © 2025 <a href="https://github.com/Klweb3928">Klweb3928</a> 保留所有权利
