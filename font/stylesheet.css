@@ -1,8 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             line-height: 1.6;
@@ -100,7 +100,6 @@
                 line-height: 1.4;  /* 更紧凑的行高 */
             }
         }
-
 
 @font-face {
     font-family: 'font';
