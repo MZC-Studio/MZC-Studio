@@ -12,6 +12,7 @@
         <div class="g-recaptcha" data-sitekey="6Lf6KdcqAAAAAEcTZgE5jVp7OjMSNpYFx4GYyEJw"></div>
         <br/>
         <button type="submit">提交</button>
+        <button type="home">返回主界面</button>
     </form>
     <script>
         document.getElementById('demo-form').addEventListener('submit', function (event) {
@@ -23,6 +24,10 @@
             } else {
                 alert('请先完成人机验证！');
             }
+        });
+        document.getElementById('demo-form').addEventListener('home', function (event) {
+            event.preventDefault();
+            window.location.href = "/"
         });
     </script>
 </body>
