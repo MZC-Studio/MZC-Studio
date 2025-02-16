@@ -166,7 +166,7 @@
     font-style: normal;
 }</pre>
         <pre title="Preload (optional)">
-&lt;link rel=&quot;preload&quot; href=&quot;PHIFON.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+&lt;link rel=&quot;preload&quot; href=&quot;font.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
         <div class="font-container" style="font-family: 'font'; font-weight: normal; font-style: normal;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
@@ -187,6 +187,11 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
         </div>
     </div>
 </div>
-<a href="/">返回主页面</a>
+<button onclick="backToMainPage()">返回主页面</button>
+<script>
+    function backToMainPage() {
+        window.location.href = "/";
+    }
+</script>
 </body>
 </html>
