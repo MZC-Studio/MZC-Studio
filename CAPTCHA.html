@@ -7,6 +7,10 @@
 <body>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        localStorage.removeItem('isCAP');
+        localStorage.clear();
+    </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <form action="/" method="POST">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAA9UH66_OEWz_yqa"></div>
@@ -29,6 +33,7 @@
             if (result.success) {
                 alert('验证成功！');
                 window.location.href = "/";
+                localStorage.setItem('isCAP','True');
             } else {
                 alert('验证失败，请重试。');
             }
