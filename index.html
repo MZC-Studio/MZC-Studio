@@ -9,281 +9,291 @@
     <title>陈的个人网站</title>
 </head>
 <body>
-    <!-- 切换按钮 -->
-    <button id="themeToggle">🌓 切换主题</button>
-    
-    <script>
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    });
-    
-    // 初始化
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-    }
-    </script>
-    
-    <style>
-    .dark-mode {
-        filter: invert(1) hue-rotate(180deg);
-        img,video,iframe,button,a {
-            filter: invert(1) hue-rotate(180deg);
-        }
-    }
-    </style>
-    <header>
-        <h3 style="font-family: 'font';">欢迎来到陈的网站！</h1>
-        <h2 style="font-family: 'font';">Scratch|CCW|Python|HTML</p>
+    <!-- 新增现代顶栏 -->
+    <header class="modern-header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="chenweb.jpg" alt="Logo" style="height: 32px;">
+                陈的个人空间
+            </a>
+            <nav class="nav-menu">
+                <a href="#about">关于我</a>
+                <a href="#projects">项目</a>
+                <a href="#contact">联系</a>
+                <a href="#video">踩踩背</a>
+                <a href="#ad">更多</a>
+                <a href="#guestbook">留言板</a>
+                <button id="themeToggle" class="nav-link" style="background: none; border: none; cursor: pointer;">
+                    🌓 主题切换
+                </button>
+            </nav>
+        </div>
     </header>
-    <button id="backToTop" style="display:none;position:fixed;bottom:20px;right:20px;">↑</button>
+    <main>
         <script>
-            window.addEventListener('scroll', () => {
-                const btn = document.getElementById('backToTop');
-                btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+            const toggle = document.getElementById('themeToggle');
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
             });
             
-            document.getElementById('backToTop').addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-    </script>
-    <nav>
-        <a href="#about">关于我</a>
-        <a href="#projects">项目</a>
-        <a href="#contact">联系</a>
-        <a href="#video">踩踩背</a>
-        <a href="#ad">更多</a>
-        <a href="#guestbook">留言板</a>
-    </nav>
-
-    <section id="about">
-        <h2 style="font-family: 'font';">个人技能</h2>
-        <ul>
-            <li style="font-family: 'font';">Web/HTML/JS</li>
-            <li style="font-family: 'font';">Python</li>
-            <li style="font-family: 'font';">CCW Scratch</li>
-            <li style="font-family: 'font';">界面设计</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2 style="font-family: 'font';">我的项目</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3 style="font-family: 'font';">小游戏</h3>
-                <p style="font-family: 'font';">一款可以打怪与联机的小游戏，目前正在测试中。推荐使用5寸及以上的手机或电脑游玩</p>
-                <a href="https://www.ccw.site/player/679197cc28de5c567e9854b6?accessKey=3fd0e1&projectId=https%3A%2F%2Fm.ccw.site%2Fuser_projects_sb3%2F264003928%2F44635306b10825e6574e5d1b70eddd0c.sb3">查看项目</a>
-            </div>
-            <div class="project-card">
-                <h3 style="font-family: 'font';">RHY-GO Project</h3>
-                <p style="font-family: 'font';">正在开发中...</p>
-                <a href="404.html">Coming S∞∞∞∞∞∞n.</a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <h2 style="font-family: 'font';">联系我</h2>
-        <p style="font-family: 'font';">邮箱：apple19782013@163.com 手机：13559928671</p>
-        <p style="font-family: 'font';">GitHub: <a href="https://github.com/Klweb3928">前往我的GitHub主页</a></p>
-    </section>
-        
-    <section id="video">
-        <h2 style="font-family: 'font';">踩踩背</h2>
-        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1055769058&bvid=BV1Nn4y1X7fA&cid=1602167383&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-    </section>
-    
-    <section id="ad">
-        <h2 style="font-family: 'font';">广告位招租（联系我，0.01元/终身，可免费试用12个月）</h2>
-        <!-- 内联样式 -->
-        <p style="color:red,font-family: 'font';">限时优惠！！！！！！打0.000001折！</p>
-    </section>
-    
-    <section id="guestbook">
-        <h2 style="font-family: 'font';">留言板（需开加速器）</h2>
-        <!-- 留言输入表单 -->
-        <div class="guestbook-form">
-            <form id="messageForm">
-                <div>
-                    <label>姓名：</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div>
-                    <label>邮箱、昵称、微信昵称：</label>
-                    <input type="text" name="email" required>
-                </div>
-                <div>
-                    <label>留言：</label>
-                    <textarea name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit">提交留言</button>
-            </form>
-            <div id="messageStatus"></div>
-        </div>
-    
-        <!-- 留言展示区 -->
-        <div class="messages-container" id="messagesContainer">
-            <div class="loading">正在加载留言...</div>
-        </div>
-    </section>
-    
-    <style>
-    .guestbook-form {
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        margin-bottom: 30px;
-    }
-    
-    .guestbook-form form div {
-        margin-bottom: 15px;
-    }
-    
-    .guestbook-form label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    
-    .guestbook-form input,
-    .guestbook-form textarea {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    
-    button {
-        background: #2c3e50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background: #34495e;
-    }
-    
-    .messages-container {
-        border-top: 1px solid #eee;
-        padding-top: 20px;
-    }
-    
-    .message-item {
-        background: #fff;
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 6px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    
-    .message-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        color: #666;
-    }
-    
-    .loading {
-        text-align: center;
-        padding: 20px;
-        color: #999;
-    }
-    </style>
-    
-    <script>
-    const config = {
-        username: 'Klweb3928',  
-        repo: 'Klweb3928.github.io',           
-        token: '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'        
-    };
-    
-    // 提交留言
-    document.getElementById('messageForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(e.target);
-        const messageData = {
-            title: `来自 ${formData.get('name')} 的留言`,
-            body: `**邮箱**: ${formData.get('email')}\n\n**留言内容**:\n${formData.get('message')}`
-        };
-    
-        try {
-            const response = await fetch(`https://api.github.com/repos/${config.username}/${config.repo}/issues`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `token${config.token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(messageData)
-            });
-    
-            if (response.ok) {
-                document.getElementById('messageStatus').innerHTML = 
-                    '<div style="color:green;">留言成功！</div>';
-                e.target.reset();
-                loadMessages(); // 刷新留言列表
-            } else {
-                throw new Error('提交失败!sb');
+            // 初始化
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
             }
-        } catch (error) {
-            document.getElementById('messageStatus').innerHTML = 
-                '<div style="color:red;">留言失败，请稍后再试！</div>';
-        }
-    });
-    
-    // 加载留言
-    async function loadMessages() {
-        try {
-            const response = await fetch(
-                `https://api.github.com/repos/${config.username}/${config.repo}/issues?labels=guestbook`
-            );
-            const messages = await response.json();
+        </script>
+        
+        <style>
+            .dark-mode {
+                filter: invert(1) hue-rotate(180deg);
+                img,video,iframe,button,a {
+                    filter: invert(1) hue-rotate(180deg);
+                }
+            }
+        </style>
+        <header>
+            <h3 style="font-family: 'font';">欢迎来到陈的网站！</h1>
+            <h2 style="font-family: 'font';">Scratch|CCW|Python|HTML</p>
+        </header>
+        <button id="backToTop" style="display:none;position:fixed;bottom:20px;right:20px;">↑</button>
+            <script>
+                window.addEventListener('scroll', () => {
+                    const btn = document.getElementById('backToTop');
+                    btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+                });
+                
+                document.getElementById('backToTop').addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+        </script>
+        <section id="about">
+            <h2 style="font-family: 'font';">个人技能</h2>
+            <ul>
+                <li style="font-family: 'font';">Web/HTML/JS</li>
+                <li style="font-family: 'font';">Python</li>
+                <li style="font-family: 'font';">CCW Scratch</li>
+                <li style="font-family: 'font';">界面设计</li>
+            </ul>
+        </section>
+        
+        <section id="projects">
+            <h2 style="font-family: 'font';">我的项目</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3 style="font-family: 'font';">小游戏</h3>
+                    <p style="font-family: 'font';">一款可以打怪与联机的小游戏，目前正在测试中。推荐使用5寸及以上的手机或电脑游玩</p>
+                    <a href="https://www.ccw.site/player/679197cc28de5c567e9854b6?accessKey=3fd0e1&projectId=https%3A%2F%2Fm.ccw.site%2Fuser_projects_sb3%2F264003928%2F44635306b10825e6574e5d1b70eddd0c.sb3">查看项目</a>
+                </div>
+                <div class="project-card">
+                    <h3 style="font-family: 'font';">RHY-GO Project</h3>
+                    <p style="font-family: 'font';">正在开发中...</p>
+                    <a href="404.html">Coming S∞∞∞∞∞∞n.</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2 style="font-family: 'font';">联系我</h2>
+            <p style="font-family: 'font';">邮箱：apple19782013@163.com 手机：13559928671</p>
+            <p style="font-family: 'font';">GitHub: <a href="https://github.com/Klweb3928">前往我的GitHub主页</a></p>
+        </section>
             
-            const container = document.getElementById('messagesContainer');
-            container.innerHTML = messages.length ? '' : '<div>还没有留言，快来第一个留言吧！</div>';
-            
-            messages.forEach(msg => {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'message-item';
-                messageDiv.innerHTML = `
-                    <div class="message-header">
-                        <span>${msg.title.replace('来自 ', '')}</span>
-                        <span>${new Date(msg.created_at).toLocaleDateString()}</span>
+        <section id="video">
+            <h2 style="font-family: 'font';">踩踩背</h2>
+            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1055769058&bvid=BV1Nn4y1X7fA&cid=1602167383&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+        </section>
+        
+        <section id="ad">
+            <h2 style="font-family: 'font';">广告位招租（联系我，0.01元/终身，可免费试用12个月）</h2>
+            <!-- 内联样式 -->
+            <p style="color:red,font-family: 'font';">限时优惠！！！！！！打0.000001折！</p>
+        </section>
+        
+        <section id="guestbook">
+            <h2 style="font-family: 'font';">留言板（需开加速器）</h2>
+            <!-- 留言输入表单 -->
+            <div class="guestbook-form">
+                <form id="messageForm">
+                    <div>
+                        <label>姓名：</label>
+                        <input type="text" name="name" required>
                     </div>
-                    <div class="message-content">${msg.body.split('**留言内容**:')[1]}</div>
-                `;
-                container.appendChild(messageDiv);
-            });
-        } catch (error) {
-            console.error('加载留言失败:', error);
+                    <div>
+                        <label>邮箱、昵称、微信昵称：</label>
+                        <input type="text" name="email" required>
+                    </div>
+                    <div>
+                        <label>留言：</label>
+                        <textarea name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">提交留言</button>
+                </form>
+                <div id="messageStatus"></div>
+            </div>
+        
+            <!-- 留言展示区 -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="loading">正在加载留言...</div>
+            </div>
+        </section>
+        
+        <style>
+        .guestbook-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
-    }
-    
-    // 页面加载时获取留言
-    loadMessages();
-    </script>
-
-    <footer>
-        © 2025 <a href="https://github.com/Klweb3928">Klweb3928</a> 保留所有权利
-        此网页由<a href="https://pages.github.com/">GitHub Pages(Github.io)</a>驱动
-        <br>网站工具:</br><a href="/font/fontdemo.html">字体测试</a>
-        <br><a href="/CAPTCHA.html">我的BiliBili帐号[需验证密码]</a></br>
-    </footer>
-
-    <script>
-    // 平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        
+        .guestbook-form form div {
+            margin-bottom: 15px;
+        }
+        
+        .guestbook-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .guestbook-form input,
+        .guestbook-form textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #34495e;
+        }
+        
+        .messages-container {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .message-item {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+        }
+        </style>
+        
+        <script>
+        const config = {
+            username: 'Klweb3928',  
+            repo: 'Klweb3928.github.io',           
+            token: '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'        
+        };
+        
+        // 提交留言
+        document.getElementById('messageForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            
+            const formData = new FormData(e.target);
+            const messageData = {
+                title: `来自 ${formData.get('name')} 的留言`,
+                body: `**邮箱**: ${formData.get('email')}\n\n**留言内容**:\n${formData.get('message')}`
+            };
+        
+            try {
+                const response = await fetch(`https://api.github.com/repos/${config.username}/${config.repo}/issues`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `token${config.token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(messageData)
+                });
+        
+                if (response.ok) {
+                    document.getElementById('messageStatus').innerHTML = 
+                        '<div style="color:green;">留言成功！</div>';
+                    e.target.reset();
+                    loadMessages(); // 刷新留言列表
+                } else {
+                    throw new Error('提交失败!sb');
+                }
+            } catch (error) {
+                document.getElementById('messageStatus').innerHTML = 
+                    '<div style="color:red;">留言失败，请稍后再试！</div>';
+            }
+        });
+        
+        // 加载留言
+        async function loadMessages() {
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${config.username}/${config.repo}/issues?labels=guestbook`
+                );
+                const messages = await response.json();
+                
+                const container = document.getElementById('messagesContainer');
+                container.innerHTML = messages.length ? '' : '<div>还没有留言，快来第一个留言吧！</div>';
+                
+                messages.forEach(msg => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message-item';
+                    messageDiv.innerHTML = `
+                        <div class="message-header">
+                            <span>${msg.title.replace('来自 ', '')}</span>
+                            <span>${new Date(msg.created_at).toLocaleDateString()}</span>
+                        </div>
+                        <div class="message-content">${msg.body.split('**留言内容**:')[1]}</div>
+                    `;
+                    container.appendChild(messageDiv);
+                });
+            } catch (error) {
+                console.error('加载留言失败:', error);
+            }
+        }
+        
+        // 页面加载时获取留言
+        loadMessages();
+        </script>
+    
+        <footer>
+            © 2025 <a href="https://github.com/Klweb3928">Klweb3928</a> 保留所有权利
+            此网页由<a href="https://pages.github.com/">GitHub Pages(Github.io)</a>驱动
+            <br>网站工具:</br><a href="/font/fontdemo.html">字体测试</a>
+            <br><a href="/CAPTCHA.html">我的BiliBili帐号[需验证密码]</a></br>
+        </footer>
+    
+        <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-    });
-    </script>
+        </script>
+    </main>
 </body>
 </html>
