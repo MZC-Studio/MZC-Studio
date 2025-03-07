@@ -126,6 +126,14 @@ body {
     transform: translateX(-50%);
 }
 
+.nav-link,
+.nav-link:visited,
+.nav-link:hover,
+.nav-link:active {
+    text-decoration: none !important;
+    color: var(--nav-text) !important;
+}
+
 /* 主题切换按钮 */
 #themeToggle {
     background: none;
