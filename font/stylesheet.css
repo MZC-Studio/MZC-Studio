@@ -25,16 +25,112 @@ body {
     min-height: 100vh;
 }
 
-/* 现代顶栏 */
+/* 顶栏基础样式 */
 .modern-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    height: 64px; /* 固定高度 */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* 暗黑模式修复 */
+.dark-mode .modern-header {
+    background: rgba(26, 26, 26, 0.95);
+    box-shadow: 0 2px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .modern-header {
+        height: 56px; /* 缩小高度 */
+        padding: 0 1rem;
+    }
+    
+    .logo img {
+        height: 24px !important; /* 缩小logo */
+    }
+    
+    .logo span {
+        font-size: 0.9rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-header {
+        height: 48px;
+        padding: 0 0.5rem;
+    }
+    
+    .nav-menu {
+        gap: 0.75rem;
+    }
+    
+    #themeToggle {
+        padding: 4px 8px;
+    }
+}
+
+/* 防止内容遮挡 */
+body {
+    margin-top: 64px;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin-top: 48px;
+    }
+}
+
+/* 折叠菜单解决方案 */
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .nav-menu:not(.mobile-open) {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: inherit;
+        font-size: 1.2rem;
+    }
+    
+    .mobile-open {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: inherit;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
 }
 
 .header-content {
@@ -114,7 +210,6 @@ section {
     }
 }
 
-/* 通用布局修正 */
 iframe, video {
     display: block;
     max-width: 100%;
@@ -132,7 +227,7 @@ iframe, video {
 .dark-mode .project-card {
     background: rgba(30,30,30,0.9);
 }
-/* 新增容器样式 */
+
 .section-container {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
@@ -148,13 +243,11 @@ iframe, video {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* 暗黑模式适配 */
 .dark-mode .section-container {
     background: rgba(30, 30, 30, 0.95);
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* 标题样式增强 */
 .section-title {
     font-size: 2.2rem;
     margin-bottom: 1.8rem;
@@ -198,7 +291,6 @@ iframe, video {
     }
 }
 
-/* 现有内容适配 */
 #projects .project-card {
     margin: 1.5rem 0;
 }
