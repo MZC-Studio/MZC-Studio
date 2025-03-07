@@ -202,6 +202,11 @@ main {
     filter: invert(1) hue-rotate(180deg);
 }
 
+/* 折叠菜单解决方案 */
+.mobile-menu-btn {
+    display: none;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     :root {
