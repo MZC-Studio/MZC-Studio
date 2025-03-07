@@ -1,213 +1,137 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-light: #ffffff;
+    --text-light: #2c3e50;
+    --background-dark: #1a1a1a;
+    --text-dark: #f8f9fa;
+    --content-width: 1200px;
+    --section-padding: 4rem;
+}
 
-        
-        /* 半透明遮罩层（可选） */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.5); /* 白色半透明遮罩 */
-            z-index: -1;
-        }
-        
-        header {
-            text-align: center;
-            padding: 50px 0;
-            border-bottom: 1px solid #eee;
-        }
-        /* 基准单位 */
-        :root {
-            --base-unit: 8px;
-            --line-height: 1.5;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* 标题层级 */
-        h1 { font-size: calc(var(--base-unit) * 3); }
-        h2 { font-size: calc(var(--base-unit) * 2.5); }
-        h3 { font-size: calc(var(--base-unit) * 2); }
-        
-        /* 段落优化 */
-        p {
-            margin: 0 0 calc(var(--base-unit) * 1.5);
-            max-width: 65ch;  /* 最佳阅读宽度 */
-        }
-        nav {
-            margin: 20px 0;
-            text-align: center;
-        }
+body {
+    margin: 80px 0 0;
+    background: var(--background-light);
+    color: var(--text-light);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #2c3e50;
-        }
+/* 现代顶栏 */
+.modern-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
 
-        section {
-            margin: 40px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
+.header-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+/* 主体内容容器 */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
 
-        .project-card {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
+/* 内容区块 */
+section {
+    padding: var(--section-padding) 0;
+    width: 100%;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-        }
+/* 暗黑模式适配 */
+.dark-mode {
+    background: var(--background-dark);
+    color: var(--text-dark);
+}
 
-/* 新增现代顶栏样式 */
+.dark-mode .modern-header {
+    background: rgba(26, 26, 26, 0.95);
+}
+
+.dark-mode img,
+.dark-mode video,
+.dark-mode iframe {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
     :root {
-        --primary-color: #2c3e50;
-        --secondary-color: #3498db;
-        --background-light: #ffffff;
-        --text-light: #2c3e50;
-        --background-dark: #1a1a1a;
-        --text-dark: #f8f9fa;
+        --content-width: 90%;
+        --section-padding: 3rem;
     }
+}
 
-    .modern-header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: all 0.3s ease;
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 2rem;
     }
-
+    
     .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        padding: 1rem;
     }
-
-    .logo {
-        font-family: 'font';
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+    
+    main {
+        padding: 0 1rem;
     }
+}
 
-    .nav-menu {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
+@media (max-width: 480px) {
+    :root {
+        --content-width: 95%;
     }
-
-    .nav-link {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-family: 'font';
-        position: relative;
-        padding: 0.5rem 0;
-        transition: color 0.3s ease;
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--secondary-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-        width: 100%;
-    }
-
-    /* 暗黑模式适配 */
-    .dark-mode .modern-header {
-        background: rgba(26, 26, 26, 0.95);
-    }
-
-    .dark-mode .logo,
-    .dark-mode .nav-link {
-        color: var(--text-dark);
-    }
-
-    /* 其他优化样式 */
+    
     body {
-        margin-top: 80px;
-        background: var(--background-light);
-        color: var(--text-light);
-        transition: background 0.3s ease;
-        line-height: 1.6;
-        color: #333;
-        max-width: 800px;
-        font-family: 'font', sans-serif;  
-        -webkit-font-smoothing: antialiased;    /* Chrome/Safari */
-        -moz-osx-font-smoothing: grayscale;  /* Firefox on macOS */
-        line-height: var(--line-height);
+        margin-top: 60px;
     }
-
-    .dark-mode {
-        background: var(--background-dark);
-        color: var(--text-dark);
-        filter: invert(0) hue-rotate(0deg);
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
     }
+}
 
-    .dark-mode img,
-    .dark-mode video,
-    .dark-mode iframe {
-        filter: invert(1) hue-rotate(180deg);
-    }
+/* 通用布局修正 */
+iframe, video {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
 
-    section {
-        padding: 4rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+.project-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-    /* 新增响应式设计 */
-    @media (max-width: 768px) {
-        .nav-menu {
-            display: none;
-        }
-
-        .mobile-menu-btn {
-            display: block;
-        }
-        :root {
-            --base-unit: 10px;  /* 放大基准单位 */
-        }
-
-        body {
-            padding: var(--base-unit);
-        }
-
-        p {
-            line-height: 1.4;  /* 更紧凑的行高 */
-        }
-    }
+.dark-mode .project-card {
+    background: rgba(30,30,30,0.9);
+}
 
 @font-face {
     font-family: 'font';
