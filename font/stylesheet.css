@@ -153,6 +153,18 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
 .section-container:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
