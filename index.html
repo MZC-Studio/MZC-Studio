@@ -62,9 +62,10 @@
                 <a href="#video" class="nav-link">踩踩背</a>
                 <a href="#ad" class="nav-link">更多</a>
                 <a href="#guestbook" class="nav-link">留言板</a>
-                <button id="themeToggle" class="nav-link" style="background: none; border: none; cursor: pointer;">
-                    🌓 主题切换
-                </button>
+                <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.0/lib/darkmode-js.min.js"></script>
+                <script>
+                    new Darkmode().showWidget();
+                </script>
             </nav>
         </div>
     </header>
@@ -75,27 +76,6 @@
                 <h2">Scratch|CCW|Python|HTML</h2>
             </div>
         </section>
-        <script>
-            const toggle = document.getElementById('themeToggle');
-            toggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-            });
-            
-            // 初始化
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-        </script>
-        
-        <style>
-            .dark-mode {
-                filter: invert(1) hue-rotate(180deg);
-                img,video,iframe,button,a {
-                    filter: invert(1) hue-rotate(180deg);
-                }
-            }
-        </style>
         <button id="backToTop" style="display:none;position:fixed;bottom:20px;right:20px;">↑</button>
             <script>
                 window.addEventListener('scroll', () => {
