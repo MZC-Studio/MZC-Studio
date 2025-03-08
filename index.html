@@ -9,7 +9,9 @@
     <title>陈的个人网站</title>
 </head>
 <body>
-    <!-- 新增现代顶栏 -->
+    <!-- 新增菜单遮罩 -->
+    <div class="menu-overlay"></div>
+    
     <header class="modern-header">
         <div class="header-content">
             <a href="#" class="logo">
@@ -20,9 +22,35 @@
             <button class="mobile-menu-btn">☰</button>
 
             <script>
-                document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-                    document.querySelector('.nav-menu').classList.toggle('mobile-open');
+                // 新增移动菜单逻辑
+                const mobileBtn = document.querySelector('.mobile-menu-btn');
+                const navMenu = document.querySelector('.nav-menu');
+                const overlay = document.querySelector('.menu-overlay');
+            
+                mobileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('mobile-open');
+                    overlay.classList.toggle('active');
                 });
+            
+                overlay.addEventListener('click', () => {
+                    navMenu.classList.remove('mobile-open');
+                    overlay.classList.remove('active');
+                });
+            
+                // 初始化隐藏移动菜单按钮（根据屏幕尺寸）
+                function checkWindowSize() {
+                    if (window.innerWidth <= 640) {
+                        mobileBtn.style.display = 'block';
+                    } else {
+                        mobileBtn.style.display = 'none';
+                        navMenu.classList.remove('mobile-open');
+                        overlay.classList.remove('active');
+                    }
+                }
+                window.addEventListener('resize', checkWindowSize);
+                checkWindowSize();
+                            });
             </script>
             
             <nav class="nav-menu">
