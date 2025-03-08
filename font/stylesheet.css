@@ -140,22 +140,6 @@ footer {
     opacity: 1;
 }
 
-/* 主题切换按钮 */
-#themeToggle {
-    background: none;
-    border: none;
-    padding: 8px;
-    margin-left: 1rem;
-    color: var(--nav-text);
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-}
-
-#themeToggle:hover {
-    background: var(--nav-hover-bg);
-}
-
 /* 内容区块 */
 main {
     max-width: var(--content-width);
@@ -203,24 +187,6 @@ main {
     font-size: 2.4rem;
     margin-bottom: 2rem;
     font-weight: 600;
-}
-
-/* 暗黑模式 */
-.dark-mode {
-    --nav-bg: rgba(29, 29, 31, 0.8);
-    --nav-text: #f5f5f7;
-    --nav-hover-bg: rgba(255, 255, 255, 0.04);
-    background: var(--background-dark);
-    color: var(--text-dark);
-}
-
-.dark-mode .modern-header {
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-.dark-mode .section-container {
-    background: rgba(29, 29, 31, 0.95);
-    border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 移动端菜单遮罩 */
