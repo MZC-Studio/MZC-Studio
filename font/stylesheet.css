@@ -64,8 +64,8 @@ footer {
     right: 0;
     height: var(--nav-height);
     background: var(--nav-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     padding: 0 2rem;
